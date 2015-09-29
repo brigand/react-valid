@@ -1,7 +1,7 @@
-import Joi from 'joi';
 import React from 'react';
 import update from 'react-addons-update';
 import propMatch from 'react-propmatch';
+import assert from 'assert';
 
 var {propTypes, makeFactory} = propMatch({
   data: null,
@@ -9,8 +9,16 @@ var {propTypes, makeFactory} = propMatch({
   validation: null,
 });
 
-export default function providesValidation(rules, options={}, Component=null){
-  if (typeof Component !== 'function') return providesValidation.bind(null, rules, options);
+export default function providesValidation(options={}, rules=null, Component=null){
+  // first optional
+  if (!rules) {
+    rules = options;
+    options = {};
+  }
+
+  assert.ok(options.validation, 'providesValidation requires a \'validation\' option');
+
+  if (typeof Component !== 'function') return providesValidation.bind(null, options, rules);
 
   const makeProps = makeFactory(Component);
 
@@ -70,7 +78,7 @@ export default function providesValidation(rules, options={}, Component=null){
           return;
         }
 
-        var {error} = Joi.validate(this.state.data[key], rule.type);
+        var {error} = options.validation(this.state.data[key], rule.type);
 
         // hide error if debounce error
         if (rule.debounceError) {

@@ -4,8 +4,9 @@ import 'babel/polyfill';
 import Joi from 'joi';
 
 test('providesValidation', (t) => {
-  var make = (rules, opts) => {
-    var C = providesValidation(rules, opts)(class Component {});
+  var make = (rules, opts={}) => {
+    opts.validation = Joi.validate;
+    var C = providesValidation(opts, rules)(class Component {});
     var inst = new C;
     inst.setState = (change) => {
       if (typeof change === 'object') {
