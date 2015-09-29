@@ -5,7 +5,7 @@ import Joi from 'joi';
 
 test('providesValidation', (t) => {
   var make = (rules, opts={}) => {
-    opts.validation = Joi.validate;
+    opts.validate = Joi.validate;
     var C = providesValidation(opts, rules)(class Component {});
     var inst = new C;
     inst.setState = (change) => {

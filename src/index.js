@@ -16,7 +16,7 @@ export default function providesValidation(options={}, rules=null, Component=nul
     options = {};
   }
 
-  assert.ok(options.validation, 'providesValidation requires a \'validation\' option');
+  assert.ok(options.validate, 'providesValidation requires a \'validate\' function option');
 
   if (typeof Component !== 'function') return providesValidation.bind(null, options, rules);
 
@@ -78,7 +78,7 @@ export default function providesValidation(options={}, rules=null, Component=nul
           return;
         }
 
-        var {error} = options.validation(this.state.data[key], rule.type);
+        var {error} = options.validate(this.state.data[key], rule.type);
 
         // hide error if debounce error
         if (rule.debounceError) {
