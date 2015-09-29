@@ -1,0 +1,34 @@
+{
+  "name": "react-valid",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "babel-node ./node_modules/.bin/tape test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brigand/react-valid.git"
+  },
+  "author": "Frankie Bagnardi <f.bagnardi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brigand/react-valid/issues"
+  },
+  "homepage": "https://github.com/brigand/react-valid#readme",
+  "dependencies": {
+    "joi": "^6.7.1",
+    "react-addons-update": "^0.14.0-rc1",
+    "react-propmatch": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.25",
+    "browserify": "^11.2.0",
+    "react": "^0.14.0-rc1",
+    "tape": "^4.2.0"
+  }
+}
