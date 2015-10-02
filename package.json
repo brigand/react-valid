@@ -2,12 +2,13 @@
   "name": "react-valid",
   "version": "0.3.0",
   "description": "",
-  "main": "index.js",
+  "main": "./lib",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "babel-node ./node_modules/.bin/tape test/*"
+    "test": "babel-node ./node_modules/.bin/tape test/*",
+    "prepublish": "babel src --out-dir lib"
   },
   "repository": {
     "type": "git",
