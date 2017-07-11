@@ -1,6 +1,6 @@
 {
   "name": "react-valid2",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "description": "unobtrusive validation decorator for react components",
   "main": "./lib",
   "directories": {
