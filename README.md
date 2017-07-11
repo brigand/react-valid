@@ -6,7 +6,7 @@ Simple joi validation high order component for validing forms.
 npm install --save react-valid
 ```
 
-## Example
+## Joi Example
 
 ```js
 import Joi from 'joi';
